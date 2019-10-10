@@ -9,13 +9,40 @@
 import SwiftUI
 
 struct ContentView: View {
+
+	@State var addEntryPresented: Bool = false
+	@FetchRequest(fetchRequest: GymEntry.makeSortedFetchRequest(), animation: .default) var gymEntry: FetchedResults<GymEntry>
+	
     var body: some View {
-        Text("Hello World")
+		
+		VStack {
+			
+			List(gymEntry, id: \.self) { (gymEntry) -> GymCell in
+				GymCell(gymEntry: gymEntry)
+			}
+			
+		}.navigationBarTitle("Gym Entries").navigationBarItems(trailing:
+			
+			Button(action: {
+				self.addEntryPresented = true
+			}) {
+				Text("New")
+			}
+			
+		).sheet(isPresented: self.$addEntryPresented) {
+			
+			NavigationView {
+				NewGymEntryView()
+			}
+			
+		}
+		
     }
+	
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+		ContentView()
     }
 }
