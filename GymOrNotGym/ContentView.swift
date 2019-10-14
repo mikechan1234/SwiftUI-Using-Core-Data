@@ -30,15 +30,21 @@ struct ContentView: View {
 		}.navigationBarTitle("Gym Entries").navigationBarItems(trailing:
 			
 			Button(action: {
+				
 				self.addEntryPresented = true
+				
 			}) {
+				
 				Text("New")
+				
 			}
 			
 		).sheet(isPresented: self.$addEntryPresented) {
 			
 			NavigationView {
+				
 				NewGymEntryView()
+				
 			}
 			
 		}
@@ -48,10 +54,14 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+	
     static var previews: some View {
+		
 		NavigationView {
 //			ContentView(contentViewModel: ContentViewModel(CoreDataContainer.main.persistentContainer.viewContext))
 			ContentView().environment(\.managedObjectContext, CoreDataContainer.main.persistentContainer.viewContext)
 		}
+		
     }
+	
 }

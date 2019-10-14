@@ -69,9 +69,15 @@ struct NewGymEntryView: View {
 }
 
 struct NewGymEntry_Previews: PreviewProvider {
+	
     static var previews: some View {
+		
 		NavigationView {
+			
 			NewGymEntryView()
+			
 		}
+		
     }
+	
 }

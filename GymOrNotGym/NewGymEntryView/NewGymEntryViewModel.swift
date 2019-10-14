@@ -31,6 +31,7 @@ extension NewGymEntryViewModel {
 		backgroundContext.performAndWait {
 
 			let entry = GymEntry(context: backgroundContext)
+			
 			entry.attended = self.attended
 			entry.date = Date()
 
