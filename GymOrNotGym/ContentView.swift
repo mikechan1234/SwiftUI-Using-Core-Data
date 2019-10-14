@@ -12,6 +12,7 @@ struct ContentView: View {
 
 	@State var addEntryPresented: Bool = false
 	@FetchRequest(fetchRequest: GymEntry.makeSortedFetchRequest(), animation: .default) var gymEntry: FetchedResults<GymEntry>
+//	var contentViewModel: ContentViewModel
 	
     var body: some View {
 		
@@ -20,6 +21,11 @@ struct ContentView: View {
 			List(gymEntry, id: \.self) { (gymEntry) -> GymCell in
 				GymCell(gymEntry: gymEntry)
 			}
+			
+//			List(contentViewModel.subject.value, id: \.self) { (gymEntry) -> GymCell in
+//				GymCell(gymEntry: gymEntry)
+//			}
+			
 			
 		}.navigationBarTitle("Gym Entries").navigationBarItems(trailing:
 			
@@ -43,6 +49,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-		ContentView()
+		NavigationView {
+//			ContentView(contentViewModel: ContentViewModel(CoreDataContainer.main.persistentContainer.viewContext))
+			ContentView().environment(\.managedObjectContext, CoreDataContainer.main.persistentContainer.viewContext)
+		}
     }
 }

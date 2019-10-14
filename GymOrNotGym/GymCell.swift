@@ -14,10 +14,14 @@ struct GymCell: View {
 	let gymEntry: GymEntry
 	
     var body: some View {
-		VStack(alignment: .leading, spacing: 15) {
+		
+		VStack(alignment: .leading, spacing: 5) {
+			
 			Text(gymEntry.attended ? "You went to the gym" : "You didn't go to the gym")
 			Text(gymEntry.formattedDate).font(.caption)
-		}
+			
+		}.padding(5)
+		
     }
 	
 }

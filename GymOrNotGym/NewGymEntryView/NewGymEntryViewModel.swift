@@ -25,37 +25,37 @@ class NewGymEntryViewModel: ObservableObject {
 extension NewGymEntryViewModel {
 	
 	func addEntry(completion: (()->())? = nil) {
-		
+				
 		let backgroundContext = coreData.persistentContainer.newBackgroundContext()
-		
-		backgroundContext.perform {
-			
+
+		backgroundContext.performAndWait {
+
 			let entry = GymEntry(context: backgroundContext)
 			entry.attended = self.attended
 			entry.date = Date()
-			
+
 			if backgroundContext.hasChanges {
-			
+
 				do {
-					
+
 					try backgroundContext.save()
-					
+
 					DispatchQueue.main.async {
-						
+
 						completion?()
-						
+
 					}
-					
+
 				} catch let error {
-					
+
 					print(error.localizedDescription)
-					
+
 				}
-				
+
 			}
-			
+
 		}
-		
+			
 	}
 	
 }

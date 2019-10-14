@@ -10,6 +10,7 @@
 		4C0311BD234EDB350064D4A8 /* GymEntry+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0311BC234EDB350064D4A8 /* GymEntry+Extension.swift */; };
 		4C0311BF234F08360064D4A8 /* NewGymEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0311BE234F08360064D4A8 /* NewGymEntryView.swift */; };
 		4C8CF5E0234F264C00BD3913 /* NewGymEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8CF5DF234F264C00BD3913 /* NewGymEntryViewModel.swift */; };
+		4CADEA5C235418B400E3F1EA /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADEA5B235418B400E3F1EA /* DateFormatter+Extension.swift */; };
 		4CCAEC4F234ED12F00CAB714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAEC4E234ED12F00CAB714 /* AppDelegate.swift */; };
 		4CCAEC51234ED12F00CAB714 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAEC50234ED12F00CAB714 /* SceneDelegate.swift */; };
 		4CCAEC54234ED12F00CAB714 /* GymOrNotGym.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CCAEC52234ED12F00CAB714 /* GymOrNotGym.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 		4C0311BC234EDB350064D4A8 /* GymEntry+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GymEntry+Extension.swift"; sourceTree = "<group>"; };
 		4C0311BE234F08360064D4A8 /* NewGymEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGymEntryView.swift; sourceTree = "<group>"; };
 		4C8CF5DF234F264C00BD3913 /* NewGymEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGymEntryViewModel.swift; sourceTree = "<group>"; };
+		4CADEA5B235418B400E3F1EA /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		4CCAEC4B234ED12F00CAB714 /* GymOrNotGym.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymOrNotGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCAEC4E234ED12F00CAB714 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CCAEC50234ED12F00CAB714 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,23 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		4CADEA5D235420BF00E3F1EA /* NewGymEntryView */ = {
+			isa = PBXGroup;
+			children = (
+				4C0311BE234F08360064D4A8 /* NewGymEntryView.swift */,
+				4C8CF5DF234F264C00BD3913 /* NewGymEntryViewModel.swift */,
+			);
+			path = NewGymEntryView;
+			sourceTree = "<group>";
+		};
+		4CADEA5E2354230600E3F1EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4CADEA5B235418B400E3F1EA /* DateFormatter+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4CCAEC42234ED12F00CAB714 = {
 			isa = PBXGroup;
 			children = (
@@ -86,12 +105,12 @@
 				4CCAEC55234ED12F00CAB714 /* ContentView.swift */,
 				4CCAEC6B234ED4A500CAB714 /* ContentViewModel.swift */,
 				4CCAEC69234ED26200CAB714 /* GymCell.swift */,
-				4C0311BE234F08360064D4A8 /* NewGymEntryView.swift */,
-				4C8CF5DF234F264C00BD3913 /* NewGymEntryViewModel.swift */,
+				4CADEA5D235420BF00E3F1EA /* NewGymEntryView */,
+				4CADEA5E2354230600E3F1EA /* Extensions */,
+				4C0311BB234EDB270064D4A8 /* CoreData */,
 				4CCAEC57234ED13000CAB714 /* Assets.xcassets */,
 				4CCAEC5C234ED13000CAB714 /* LaunchScreen.storyboard */,
 				4CCAEC5F234ED13000CAB714 /* Info.plist */,
-				4C0311BB234EDB270064D4A8 /* CoreData */,
 				4CCAEC59234ED13000CAB714 /* Preview Content */,
 			);
 			path = GymOrNotGym;
@@ -185,6 +204,7 @@
 				4CCAEC68234ED14D00CAB714 /* CoreDataContainer.swift in Sources */,
 				4CCAEC51234ED12F00CAB714 /* SceneDelegate.swift in Sources */,
 				4C0311BF234F08360064D4A8 /* NewGymEntryView.swift in Sources */,
+				4CADEA5C235418B400E3F1EA /* DateFormatter+Extension.swift in Sources */,
 				4CCAEC6A234ED26200CAB714 /* GymCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

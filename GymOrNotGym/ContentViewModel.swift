@@ -9,10 +9,48 @@
 import Foundation
 import CoreData
 import Combine
-import SwiftUI
 
-class ContentViewModel: ObservableObject {
+class ContentViewModel: NSObject, ObservableObject {
 	
-	@FetchRequest(fetchRequest: GymEntry.makeSortedFetchRequest(), animation: .default) var gymEntry: FetchedResults<GymEntry>
+	var fetchedResultsController: NSFetchedResultsController<GymEntry>
+	var entriesSubject: CurrentValueSubject<[GymEntry], Never>
+	
+	init(_ managedObjectContext: NSManagedObjectContext) {
+		
+		fetchedResultsController = NSFetchedResultsController(fetchRequest: GymEntry.makeSortedFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+		entriesSubject = CurrentValueSubject<[GymEntry], Never>([])
+		
+		super.init()
+		
+		fetchedResultsController.delegate = self
+		
+		do {
+			
+			try fetchedResultsController.performFetch()
+			
+			entriesSubject.send(fetchedResultsController.fetchedObjects ?? [])
+			
+		} catch {
+		
+			print(error)
+			
+		}
+		
+	}
+	
+}
+
+//MARK: NSFetchedResultsControllerDelegate
+extension ContentViewModel: NSFetchedResultsControllerDelegate {
+	
+	func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+		
+		guard let entries = controller.fetchedObjects as? [GymEntry] else {
+			return
+		}
+		
+		entriesSubject.send(entries)
+		
+	}
 	
 }

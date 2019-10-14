@@ -16,8 +16,7 @@ extension GymEntry {
 			return ""
 		}
 		
-		let dateFormatter = ISO8601DateFormatter()
-		return dateFormatter.string(from: date)
+		return DateFormatter.shortDate.string(from: date)
 		
 	}
 	
